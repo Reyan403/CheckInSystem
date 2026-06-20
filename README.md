@@ -11,7 +11,8 @@ cd GestionLicence**
 
 3. Créer la base de donnée
 
-[check_in_system.sql](https://github.com/user-attachments/files/29160128/check_in_system.sql)
+[check_in_system.sql](https://github.com/user-attachments/files/29160128/check_in_system.sql) 
+Cliquez pour télécharger la base de donnée, puis dans l'interface MySQL ou autre, importez ce fichier 
 
 5. Démarrer l'application
 
