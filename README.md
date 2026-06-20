@@ -1,4 +1,4 @@
-[check_in_system.sql](https://github.com/user-attachments/files/29160128/check_in_system.sql)### Comment lancer le projet
+### Comment lancer le projet
 
 1.PHP
 
@@ -11,7 +11,7 @@ cd GestionLicence**
 
 3. Créer la base de donnée
 
-[Uploading check_in_system.sql…]()
+[check_in_system.sql](https://github.com/user-attachments/files/29160128/check_in_system.sql)
 
 5. Démarrer l'application
 
