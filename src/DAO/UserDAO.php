@@ -39,26 +39,25 @@ Class UserDAO
             SELECT u.*, r.name AS role_name, r.id AS role_id
             FROM user u 
             JOIN role r ON u.id_role = r.id
-            WHERE u.pin = :pin
         ");
-        $sql->execute([':pin' => $pinSaisie]);
-        $data = $sql->fetch(\PDO::FETCH_ASSOC);
+        $sql->execute();
+        $rows = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
-        if($data) {
-            $role = new Role(
-                $data['role_id'],
-                $data['role_name'],
-            );
+        foreach ($rows as $data) {
+            if (password_verify($pinSaisie, $data['pin'])) {
+                $role = new Role(
+                    $data['role_id'],
+                    $data['role_name'],
+                );
 
-            $user = new User(
-                $data['id'],
-                $data['firstname'],
-                $data['lastname'],
-                $data['pin'],
-                $role,
-            );
-
-            return $user;
+                return new User(
+                    $data['id'],
+                    $data['firstname'],
+                    $data['lastname'],
+                    $data['pin'],
+                    $role,
+                );
+            }
         }
 
         return null;
