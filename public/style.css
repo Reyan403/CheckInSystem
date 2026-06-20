@@ -84,7 +84,6 @@ a {
   gap: 4px;
 }
 
-/* Lien du menu */
 .nav-item {
   display: flex;
   align-items: center;
@@ -108,7 +107,6 @@ a {
   color: #f0f0f0;
 }
 
-/* Item actif — ajoute la classe "active" sur le bon lien */
 .nav-item.active {
   background: #3b5bff;
   color: white;
@@ -126,7 +124,6 @@ a {
   margin-top: 16px;
 }
 
-/* Cercle avec les initiales */
 .user-avatar {
   width: 36px;
   height: 36px;
@@ -152,7 +149,6 @@ a {
   margin-top: 1px;
 }
 
-/* Bouton déconnexion */
 .user-logout {
   margin-left: auto;
   display: flex;
@@ -187,7 +183,6 @@ a {
    PAGE CONNEXION
 ============================== */
 
-/* Zone centrée à droite de la sidebar */
 .login-section {
   display: flex;
   flex-direction: column;
@@ -195,6 +190,8 @@ a {
   justify-content: center;
   min-height: 100vh;
   margin-left: 240px;
+  flex: 1;
+  padding-bottom: 12vh;
 }
 
 .login-title {
@@ -210,7 +207,6 @@ a {
   margin-bottom: 28px;
 }
 
-/* Formulaire */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -226,7 +222,6 @@ a {
   letter-spacing: 0.8px;
 }
 
-/* Champ de saisie */
 .login-input {
   padding: 14px 16px;
   background: #1e1e1e;
@@ -245,14 +240,12 @@ a {
   border-color: #3b5bff;
 }
 
-/* Message d'erreur */
 .login-error {
   font-size: 12px;
   color: #ef4444;
   text-align: center;
 }
 
-/* Bouton valider */
 .login-btn {
   padding: 13px;
   background: #3b5bff;
@@ -279,7 +272,6 @@ a {
   padding-top: 8px;
 }
 
-/* ── En-tête ── */
 .checkin-header {
   display: flex;
   align-items: center;
@@ -302,7 +294,6 @@ a {
   color: #555;
 }
 
-/* ── Horloge ── */
 .checkin-date {
   display: flex;
   flex-direction: column;
@@ -310,22 +301,6 @@ a {
   gap: 2px;
 }
 
-#clock-time {
-  font-size: 30px;
-  font-weight: 700;
-  color: #f0f0f0;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -1px;
-  line-height: 1;
-}
-
-#clock-date {
-  font-size: 11px;
-  color: #555;
-  text-align: right;
-}
-
-/* ── Carte principale ── */
 .checkin-card {
   background: #111;
   border: 1px solid #1e1e1e;
@@ -334,7 +309,6 @@ a {
   margin-bottom: 20px;
 }
 
-/* ── Indicateur de statut ── */
 .checkin-status {
   display: flex;
   align-items: center;
@@ -370,7 +344,6 @@ a {
   letter-spacing: 0.3px;
 }
 
-/* ── Rangée des boutons ── */
 .checkin-buttons {
   display: flex;
   align-items: stretch;
@@ -390,7 +363,6 @@ a {
   flex-shrink: 0;
 }
 
-/* ── Bouton de pointage ── */
 .btn-checkin {
   width: 100%;
   height: 100%;
@@ -427,7 +399,6 @@ a {
   transform: scale(0.97) translateY(0);
 }
 
-/* Icône */
 .btn-icon {
   width: 46px;
   height: 46px;
@@ -458,7 +429,6 @@ a {
   height: 20px;
 }
 
-/* Texte */
 .btn-label {
   display: flex;
   flex-direction: column;
@@ -476,7 +446,6 @@ a {
   color: #555; 
 }
 
-/* ── Message de succès ── */
 .success-message {
   color: #22c55e;
   margin-top: 20px;
@@ -486,4 +455,244 @@ a {
   background: rgba(34, 197, 94, 0.1);
   border-radius: 12px;
   border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* ==============================
+   VUE HIÉRARCHIQUE
+============================== */
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f0f4ff;
+  letter-spacing: -0.02em;
+}
+
+.page-header p {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.table-card {
+  background: #1a1d27;
+  border: 1px solid #2a2d3e;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-card thead tr {
+  background: linear-gradient(90deg, #1e2235 0%, #252840 100%);
+  border-bottom: 1px solid #2e3150;
+}
+
+.table-card thead th {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7c83b0;
+}
+
+.table-card tbody tr {
+  border-bottom: 1px solid #1e2130;
+  transition: background 0.18s ease;
+}
+
+.table-card tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table-card tbody tr:hover {
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.table-card tbody td {
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  color: #c9d1f5;
+  vertical-align: middle;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-arrive {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.badge-depart {
+  background: rgba(249, 115, 22, 0.12);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ── Date cell ── */
+.date-time {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.date-time .date {
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.date-time .time {
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.page-link {
+  padding: 8px 14px;
+  background: #1a1d27;
+  border: 1px solid #2a2d3e;
+  border-radius: 8px;
+  color: #c9d1f5;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.page-link:hover:not(.disabled) {
+  background: #252840;
+  border-color: #3b5bff;
+  color: #fff;
+}
+
+.page-link.active {
+  background: #3b5bff;
+  border-color: #3b5bff;
+  color: #fff;
+}
+
+.page-link.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==============================
+   RESPONSIVE (MOBILES & TABLETTES)
+============================== */
+@media screen and (max-width: 768px) {
+  
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar-logo {
+    margin-bottom: 16px;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .sidebar-user {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .login-section {
+    margin-left: 0;
+    padding: 20px;
+    padding-bottom: 50vh;
+    width: 100%;
+  }
+
+  .checkin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkin-date {
+    align-items: flex-start;
+  }
+
+  #clock-date {
+    text-align: left;
+  }
+
+  .checkin-buttons form.checkin-form {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .checkin-divider {
+    width: 100%;
+    height: 1px;
+    margin: 4px 0;
+  }
+
+  .table-card {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-card table {
+    min-width: 500px;
+  }
 }

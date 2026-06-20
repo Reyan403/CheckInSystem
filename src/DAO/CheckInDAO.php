@@ -16,6 +16,22 @@ Class CheckInDAO
         $this->connexion = $connexion;
     }
 
+    public function getActionByName(string $name): ?Action
+    {
+        $sql = $this->connexion->prepare("
+            SELECT id, name FROM action WHERE name = :name
+        ");
+
+        $sql->execute([':name' => $name]);
+        $data = $sql->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$data) {
+            return null;
+        }
+
+        return new Action($data['id'], $data['name']);
+    }
+
     public function insert(int $idUser, int $idAction): void 
     {
         $sql = $this->connexion->prepare("
@@ -29,7 +45,13 @@ Class CheckInDAO
         ]);
     }
 
-    public function getAll(): array 
+    public function countAll(): int
+    {
+        $sql = $this->connexion->query("SELECT COUNT(id) FROM check_in");
+        return (int) $sql->fetchColumn();
+    }
+
+    public function getAll(int $limit = 10, int $offset = 0): array 
     {
         // 1. On donne un nom unique (alias) à chaque ID et chaque Name
         $sql = $this->connexion->prepare("
@@ -42,10 +64,12 @@ Class CheckInDAO
             JOIN user u ON c.id_user = u.id
             JOIN role r ON u.id_role = r.id
             JOIN action a ON c.id_action = a.id
-            WHERE DATE(c.date) = CURDATE()
             ORDER BY c.date DESC
+            LIMIT :limit OFFSET :offset
         ");
 
+        $sql->bindValue(':limit', $limit, \PDO::PARAM_INT);
+        $sql->bindValue(':offset', $offset, \PDO::PARAM_INT);
         $sql->execute();
 
         $checkInList = [];
@@ -73,7 +97,7 @@ Class CheckInDAO
 
             $checkIn = new CheckIn(
                 $data['checkin_id'],
-                $data['date'],
+                new \DateTime($data['date']),
                 $user, 
                 $action,
             );

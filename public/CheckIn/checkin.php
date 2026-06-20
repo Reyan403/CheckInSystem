@@ -1,4 +1,4 @@
-<?php include 'process_checkin.php'; ?>
+<?php include '../includes/process_checkin.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">

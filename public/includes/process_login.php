@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_lastname']  = $user->getLastname();
         $_SESSION['user_role']      = $user->getRole()->getName();
 
-        header('Location: ../CheckIn/checkin.php');
+        header('Location: /php/CheckInSystem/public/CheckIn/checkin.php');
         exit;
     } else {
         $erreur = 'Code PIN incorrect. Veuillez réessayer.';

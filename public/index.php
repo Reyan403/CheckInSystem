@@ -1,9 +1,9 @@
 <?php
-    include '../../src/Model/db.php';
-    include '../../src/Model/User.php';
-    include '../../src/Model/Role.php';
-    include '../../src/DAO/UserDAO.php';
-    include '../Login/process_login.php';
+    include '../src/Model/db.php';
+    include '../src/Model/User.php';
+    include '../src/Model/Role.php';
+    include '../src/DAO/UserDAO.php';
+    include 'includes/process_login.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,12 +11,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Connexion</title>
 </head>
 <body>
 
-<?php include '../includes/sidebar.php'; ?>
+<?php include 'includes/sidebar.php'; ?>
 
     <section class="login-section">
         <h1 class="login-title">Connexion</h1>

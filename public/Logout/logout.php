@@ -5,5 +5,6 @@
     session_unset();
     session_destroy();
 
-    header('Location: /php/CheckInSystem/public/Login/login.php');
+    header('Location: /php/CheckInSystem/public/index.php');
+    exit;
 ?>
