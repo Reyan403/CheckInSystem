@@ -1,3 +1,11 @@
+### Technologies utilisées
+
+- PHP (POO)
+- HTML
+- CSS
+
+---
+
 ### Comment lancer le projet
 
 **1.PHP**
